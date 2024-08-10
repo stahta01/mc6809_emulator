@@ -229,7 +229,8 @@ int mc6809_step(mc6809__t *cpu)
     cpu->sync      = false;
     return 0;
   }
-  else if (cpu->firq)
+  
+  if (cpu->firq)
   {
     unsigned long cycles;
     
@@ -262,7 +263,8 @@ int mc6809_step(mc6809__t *cpu)
       return 0;
     }
   }
-  else if (cpu->irq)
+  
+  if (cpu->irq)
   {
     unsigned long cycles;
     
