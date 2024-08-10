@@ -259,8 +259,8 @@ int mc6809_step(mc6809__t *cpu)
       cpu->pc.b[MSB] = (*cpu->read)(cpu,MC6809_VECTOR_FIRQ,false);
       cpu->pc.b[LSB] = (*cpu->read)(cpu,MC6809_VECTOR_FIRQ + 1,false);
       cpu->cwai      = false;
+      return 0;
     }
-    return 0;
   }
   else if (cpu->irq)
   {
@@ -300,8 +300,8 @@ int mc6809_step(mc6809__t *cpu)
       cpu->pc.b[MSB] = (*cpu->read)(cpu,MC6809_VECTOR_IRQ,false);
       cpu->pc.b[LSB] = (*cpu->read)(cpu,MC6809_VECTOR_IRQ + 1,false);
       cpu->cwai      = false;
+      return 0;
     }
-    return 0;
   }
   
   cpu->cycles++;
